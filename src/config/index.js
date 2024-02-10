@@ -8,4 +8,7 @@ module.exports = {
     env: process.env.ENV,
     apiVersion: process.env.API_VERSION,
   },
+  sslLabs: {
+    hostname: process.env.URL_API_SSL_VERSION,
+  },
 };

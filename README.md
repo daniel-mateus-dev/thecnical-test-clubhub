@@ -2,7 +2,7 @@
 
 ## Platform: Backend
 
-## Language: Golang
+## Language: NodeJs
 
 Welcome to the ClubHub Code Challenge for building a service to manage hotel franchises of a company! This README will guide you through the challenge and help you understand the tasks to be completed.
 

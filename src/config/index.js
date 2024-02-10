@@ -11,4 +11,11 @@ module.exports = {
   sslLabs: {
     hostname: process.env.URL_API_SSL_VERSION,
   },
+  databaseConfig: {
+    database: process.env.POSTGRES_DB,
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
+    dialect: process.env.DIALECT_DB,
+  }
 };

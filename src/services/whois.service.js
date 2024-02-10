@@ -11,6 +11,7 @@ const getInfoWhois = async (hostname) => {
     });
   } catch (error) {
     console.error(`Erro get info for ${hostname}, error: ${error}`);
+    throw error;
   }
 };
 

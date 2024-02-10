@@ -11,6 +11,7 @@ const getSslInfo = async (host) => {
     return response.data;
   } catch (error) {
     console.error(`Erro get ssl info for ${hostname}, error: ${error}`);
+    throw error;
   }
 };
 

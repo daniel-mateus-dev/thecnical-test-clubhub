@@ -8,6 +8,7 @@ const contactRoutes = require("../routes/contact");
 const franchisesRoutes = require("../routes/franchises");
 const informationRoutes = require("../routes/information");
 const locationRoutes = require("../routes/location");
+const hotelsRoutes = require("../routes/hotels");
 
 const { notFoundController } = require("../controllers/notFound.controller");
 
@@ -18,6 +19,7 @@ routes.use("/contact", contactRoutes);
 routes.use("/franchises", franchisesRoutes);
 routes.use("/information", informationRoutes);
 routes.use("/location", locationRoutes);
+routes.use("/hotel", hotelsRoutes);
 routes.use("*", notFoundController);
 
 module.exports = routes;

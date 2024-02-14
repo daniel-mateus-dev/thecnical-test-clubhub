@@ -1,5 +1,9 @@
+const {
+  buildAttachDataSslWithWois,
+} = require("../helper/attachDataSslWithWhois");
 const { getSslInfo } = require("../services/sslLabs.service");
 const { getInfoWhois } = require("../services/whois.service");
+const { extractWhoisLocation } = require("../helper/buildLocationStructure");
 
 const hotelsController = {
   getInfo: async (req, res) => {
@@ -17,15 +21,35 @@ const hotelsController = {
         return;
       }
 
+      if (ips.length === 0) {
+        res.status(400).json({
+          status: 400,
+          message: "Endpoints not found",
+        });
+        return;
+      }
+
       const whoisInfo = ips.map((ip) => getInfoWhois(ip));
       const info = await Promise.all(whoisInfo);
 
+      const dataStructured = buildAttachDataSslWithWois(sslInfo, info);
+
+      const locations = extractWhoisLocation(dataStructured);
+
+      console.log(dataStructured);
+
+      dataStructured.endpoints.forEach((endpoint, idx) => {
+        dataStructured.endpoints[idx] = {
+          ...endpoint,
+          location: locations[idx],
+        };
+      });
+
       res.status(200).json({
         status: 200,
-        message: "Successfully get all hotels",
+        message: "Successfully get info of hotel",
         data: {
-          ...sslInfo,
-          ...info,
+          ...dataStructured,
         },
       });
     } catch (error) {

@@ -12,10 +12,6 @@ const City = sequelize.define("City", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  code: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  }
 });
 
 module.exports = { City };

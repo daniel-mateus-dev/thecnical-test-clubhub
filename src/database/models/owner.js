@@ -7,7 +7,7 @@ const Owner = sequelize.define("Owner", {
     type: DataTypes.UUID,
     primaryKey: true,
     allowNull: false,
-    defaultValue: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
   },
   first_name: {
     type: DataTypes.STRING,
@@ -16,6 +16,11 @@ const Owner = sequelize.define("Owner", {
   last_name: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  companyId: {
+    type: DataTypes.UUID,
+    allowNull: false,
+    unique: true, 
   }
 });
 

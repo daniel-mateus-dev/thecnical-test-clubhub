@@ -7,6 +7,7 @@ const validatorSchemy = (schemy, property) => {
         message: "Validation error",
         details: error.details.map((item) => item.message),
       });
+      return;
     }
     next();
   };

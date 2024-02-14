@@ -4,6 +4,7 @@ const {
 const { getSslInfo } = require("../services/sslLabs.service");
 const { getInfoWhois } = require("../services/whois.service");
 const { extractWhoisLocation } = require("../helper/buildLocationStructure");
+const { sendMessage } = require("../services/kafka.service");
 
 const hotelsController = {
   getInfo: async (req, res) => {
@@ -36,14 +37,14 @@ const hotelsController = {
 
       const locations = extractWhoisLocation(dataStructured);
 
-      console.log(dataStructured);
-
       dataStructured.endpoints.forEach((endpoint, idx) => {
         dataStructured.endpoints[idx] = {
           ...endpoint,
           location: locations[idx],
         };
       });
+
+      await sendMessage("start-save-data", { ...dataStructured });
 
       res.status(200).json({
         status: 200,

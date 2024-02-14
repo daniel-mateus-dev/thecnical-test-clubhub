@@ -1,7 +1,7 @@
-const joi = require("joi");
+const Joi = require("joi");
 
-const getInfoHotelsSchemy = joi.object({
-  host: joi.string().required(),
+const getInfoHotelsSchemy = Joi.object({
+  host: Joi.string().required(),
 });
 
 module.exports = { getInfoHotelsSchemy };

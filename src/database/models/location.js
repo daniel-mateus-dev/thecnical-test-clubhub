@@ -15,7 +15,7 @@ const Location = sequelize.define("Location", {
     allowNull: false,
   },
   zip_code: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 });

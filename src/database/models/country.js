@@ -11,11 +11,13 @@ const Country = sequelize.define("Country", {
   country: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   code: {
     type: DataTypes.STRING,
     allowNull: false,
-  }
+    unique: true,
+  },
 });
 
 module.exports = { Country };

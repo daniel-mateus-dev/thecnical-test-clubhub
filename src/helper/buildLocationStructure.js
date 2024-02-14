@@ -45,7 +45,7 @@ function extractWhoisLocation(data) {
 }
 
 const countryCodeToCountryName = (countryCode) => {
-  return countryCodes[countryCode] || "Country Not Found";
+  return countryCodes[countryCode.toUpperCase()] || "Country Not Found";
 };
 
-module.exports = { extractWhoisLocation };
+module.exports = { extractWhoisLocation, countryCodeToCountryName };

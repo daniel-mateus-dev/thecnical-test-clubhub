@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../index");
+const { Country } = require("./country");
 
 const City = sequelize.define("City", {
   id: {
@@ -11,7 +12,10 @@ const City = sequelize.define("City", {
   city: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
 });
+
+City.belongsTo(Country, { foreignKey: "countryId" });
 
 module.exports = { City };

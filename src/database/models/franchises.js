@@ -14,7 +14,7 @@ const Franchises = sequelize.define("Franchises", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  tax_number: {
+  url: {
     type: DataTypes.STRING,
     allowNull: false,
   },

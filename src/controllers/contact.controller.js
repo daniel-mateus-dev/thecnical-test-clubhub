@@ -1,6 +1,6 @@
-const { City } = require("../database/models/city");
 const { Contact } = require("../database/models/contact");
 const { Country } = require("../database/models/country");
+const { City } = require("../database/models/city");
 const { Location } = require("../database/models/location");
 const { Owner } = require("../database/models/owner");
 

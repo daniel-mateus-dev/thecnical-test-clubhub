@@ -26,7 +26,7 @@ const initializeServer = async () => {
     throw err;
   });
 
-  await sequelize.sync({ force: false }).catch((err) => {
+  await sequelize.sync({ force: true }).catch((err) => {
     console.error("Unable to sync the database:", err);
     throw err;
   });

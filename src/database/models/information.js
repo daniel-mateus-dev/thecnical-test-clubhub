@@ -15,7 +15,7 @@ const Information = sequelize.define("Information", {
     allowNull: false,
   },
   tax_number: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 });

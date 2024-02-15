@@ -11,13 +11,7 @@ const { Endpoint } = require("../database/models/endpoints");
 const saveDataHotelController = async (url, hotelId) => {
   try {
     console.log(`Getting hotel data for ${url}`);
-    console.log(
-      "****************************************************************"
-    );
-    console.log(hotelId);
-    console.log(
-      "****************************************************************"
-    );
+    
     const sslInfo = await getSslInfo(url);
 
     if (!sslInfo?.endpoints?.length) {
@@ -48,7 +42,6 @@ const saveDataHotelController = async (url, hotelId) => {
     let locationPromises = [];
 
     dataStructured.endpoints.forEach((endpoint) => {
-      console.log(endpoint.location);
       locationPromises.push(
         saveLocationController(
           endpoint.location.countryCode,

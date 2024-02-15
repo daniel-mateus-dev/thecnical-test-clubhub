@@ -6,6 +6,8 @@ const { Information } = require("../database/models/information");
 const { Location } = require("../database/models/location");
 const { City } = require("../database/models/city");
 const { Country } = require("../database/models/country");
+const { Hotel } = require("../database/models/hotel");
+const { Endpoint } = require("../database/models/endpoints");
 
 const companyController = {
   getById: async (req, res) => {
@@ -63,6 +65,27 @@ const companyController = {
                 },
                 {
                   model: Country,
+                },
+              ],
+            },
+            {
+              model: Hotel,
+              include: [
+                {
+                  model: Endpoint,
+                  include: [
+                    {
+                      model: Location,
+                      include: [
+                        {
+                          model: City,
+                        },
+                        {
+                          model: Country,
+                        },
+                      ],
+                    },
+                  ],
                 },
               ],
             },

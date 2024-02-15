@@ -1,0 +1,19 @@
+{
+  "name": "slave",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "author": "Daniel Mateus",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.4",
+    "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

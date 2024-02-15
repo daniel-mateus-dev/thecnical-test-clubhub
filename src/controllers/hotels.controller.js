@@ -4,7 +4,6 @@ const {
 const { getSslInfo } = require("../services/sslLabs.service");
 const { getInfoWhois } = require("../services/whois.service");
 const { extractWhoisLocation } = require("../helper/buildLocationStructure");
-const { sendMessage } = require("../services/kafka.service");
 
 const hotelsController = {
   getInfo: async (req, res) => {
@@ -13,14 +12,6 @@ const hotelsController = {
 
       let ips = [];
       ips = sslInfo.endpoints.map((ep) => ep.ipAddress);
-
-      if (ips.length == 0) {
-        res.status(400).json({
-          status: 400,
-          message: "Endpoint not found",
-        });
-        return;
-      }
 
       if (ips.length === 0) {
         res.status(400).json({
@@ -43,8 +34,6 @@ const hotelsController = {
           location: locations[idx],
         };
       });
-
-      await sendMessage("start-save-data", { ...dataStructured });
 
       res.status(200).json({
         status: 200,

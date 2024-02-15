@@ -3,6 +3,8 @@ const { Country } = require("../database/models/country");
 const { City } = require("../database/models/city");
 const { Location } = require("../database/models/location");
 const { Owner } = require("../database/models/owner");
+const { sendMessage } = require("../services/kafka.service");
+const { Hotel } = require("../database/models/hotel");
 
 const franchisesController = {
   getAll: async (req, res) => {
@@ -39,6 +41,14 @@ const franchisesController = {
   createFranchises: async (req, res) => {
     try {
       const franchises = await Franchises.create(req.body);
+      const hotel = await Hotel.create({
+        franchiseId: franchises.dataValues.id,
+        url: req.body.url,
+      });
+      await sendMessage("start-save-data", {
+        url: req.body.url,
+        hotelId: hotel.dataValues.id,
+      });
       res.status(201).json({
         status: 201,
         message: "Successfully create franchises",

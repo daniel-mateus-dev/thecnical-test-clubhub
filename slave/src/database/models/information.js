@@ -2,9 +2,8 @@ const { DataTypes } = require("sequelize");
 const { sequelize } = require("../index");
 const { Owner } = require("./owner");
 const { Location } = require("./location");
-const { Hotel } = require("./hotel");
 
-const Franchises = sequelize.define("Franchises", {
+const Information = sequelize.define("Information", {
   id: {
     type: DataTypes.UUID,
     primaryKey: true,
@@ -15,14 +14,13 @@ const Franchises = sequelize.define("Franchises", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  url: {
-    type: DataTypes.STRING,
+  tax_number: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 });
 
-Franchises.belongsTo(Owner, { foreignKey: "ownerId" });
-Franchises.belongsTo(Location, { foreignKey: "locationId" });
-Franchises.hasMany(Hotel, { foreignKey: "franchiseId" });
+Information.belongsTo(Owner, { foreignKey: "ownerId" });
+Information.belongsTo(Location, { foreignKey: "locationId" });
 
-module.exports = { Franchises };
+module.exports = { Information };

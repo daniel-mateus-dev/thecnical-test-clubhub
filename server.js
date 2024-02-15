@@ -6,6 +6,8 @@ const { serverConfig } = require("./src/config");
 const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./docs/swagger.json");
 
 app.use(cors());
 app.use(helmet());
@@ -30,6 +32,8 @@ const initializeServer = async () => {
     console.error("Unable to sync the database:", err);
     throw err;
   });
+
+  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   app.listen(serverConfig.port, () => {
     console.log(`Server running on port ${serverConfig.port}.`);

@@ -1,0 +1,495 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Backend Node",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "tags": ["health check"],
+        "summary": "health check",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "uptime": {
+                      "type": "integer",
+                      "example": 123456
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/company/{companyId}": {
+      "get": {
+        "tags": ["company"],
+        "summary": "get by id info of company",
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "702530a7-af27-4a4e-9d33-2c0263d8d591"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/company": {
+      "get": {
+        "tags": ["company"],
+        "summary": "get all companies",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["company"],
+        "summary": "create company",
+        "requestBody": {
+          "content": {}
+        },
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 201
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully create company"
+                    },
+                    "company": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "1b096064-a635-435b-aba1-c9a51b7ec881"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2024-02-15T07:51:16.248Z"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2024-02-15T07:51:16.248Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/owner": {
+      "get": {
+        "tags": ["owner"],
+        "summary": "get all owners",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["owner"],
+        "summary": "create owner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "first_name": "Edinson Daniel",
+                  "last_name": "Mateus Ovalle",
+                  "companyId": "702530a7-af27-4a4e-9d33-2c0263d8d591"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["owner"],
+        "summary": "update owner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "first_name": "Edinson Daniel",
+                  "last_name": "Mateus Ovalle",
+                  "id": "0a2050bc-3d76-4610-9e91-3bb494e5c432"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/location": {
+      "get": {
+        "tags": ["location"],
+        "summary": "get all location",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["location"],
+        "summary": "create location",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "code": "co",
+                  "city": "Bogota",
+                  "address": "carrera 70a # 65a 18",
+                  "zip_code": 100000
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["location"],
+        "summary": "update location",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "id": "fcf1702e-b059-4961-a54c-3181b7e6fc24",
+                  "code": "MX",
+                  "city": "Mexico",
+                  "address": "Av. Jalisco",
+                  "zip_code": 400000
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/contact": {
+      "get": {
+        "tags": ["contact"],
+        "summary": "get all contacts",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["contact"],
+        "summary": "create contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "dmateus17.dm@gmail.com",
+                  "phone": "3166989045",
+                  "ownerId": "ac2dff4a-2925-4afe-ab7e-4cab7a09c203",
+                  "locationId": "7ce27895-dcc6-41d7-80bd-05d25cd7bd24"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["contact"],
+        "summary": "update contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "id": "5b83762f-9bc9-4e57-87f7-e06a58125e47",
+                  "email": "dmateus17.dm@gmail.com",
+                  "phone": "3102098282",
+                  "ownerId": "fd1bf748-7a9c-4c34-ac9a-a94481c07827",
+                  "locationId": "a18c1723-3993-4a95-ada0-7440c53c9c80"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/franchises": {
+      "get": {
+        "tags": ["franchises"],
+        "summary": "get all franchises",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["franchises"],
+        "summary": "create franchise",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "franquicia 3",
+                  "url": "https://marriot.com",
+                  "ownerId": "ac2dff4a-2925-4afe-ab7e-4cab7a09c203",
+                  "locationId": "7ce27895-dcc6-41d7-80bd-05d25cd7bd24"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["franchises"],
+        "summary": "update franchise",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "id": "463b6835-c09d-4780-b817-0ffefdebc583",
+                  "name": "franquicia update",
+                  "url": "1015468973",
+                  "ownerId": "fd1bf748-7a9c-4c34-ac9a-a94481c07827",
+                  "locationId": "a18c1723-3993-4a95-ada0-7440c53c9c80"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/information": {
+      "get": {
+        "tags": ["information"],
+        "summary": "get all information",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["information"],
+        "summary": "create information",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "information 1",
+                  "tax_number": 1015468973,
+                  "ownerId": "ac2dff4a-2925-4afe-ab7e-4cab7a09c203",
+                  "locationId": "7ce27895-dcc6-41d7-80bd-05d25cd7bd24"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["information"],
+        "summary": "update information",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "id": "463b6835-c09d-4780-b817-0ffefdebc583",
+                  "name": "franquicia update",
+                  "url": "1015468973",
+                  "ownerId": "fd1bf748-7a9c-4c34-ac9a-a94481c07827",
+                  "locationId": "a18c1723-3993-4a95-ada0-7440c53c9c80"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hotel": {
+      "get": {
+        "tags": ["hotel"],
+        "summary": "get info hotel",
+        "parameters": [
+          {
+            "name": "host",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "marriot.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,527 @@
+{
+	"info": {
+		"_postman_id": "c8953b40-f1d8-4af7-83ac-b0767f06d7be",
+		"name": "Backend Node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14593605"
+	},
+	"item": [
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by id info of company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company/702530a7-af27-4a4e-9d33-2c0263d8d591",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company",
+						"702530a7-af27-4a4e-9d33-2c0263d8d591"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all owners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/owner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create owner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Edinson Daniel\",\n    \"last_name\": \"Mateus OValle\",\n    \"companyId\": \"702530a7-af27-4a4e-9d33-2c0263d8d591\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/owner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update owner",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Edinson Daniel\",\n    \"last_name\": \"Mateus Ovalle\",\n    \"id\": \"0a2050bc-3d76-4610-9e91-3bb494e5c432\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/owner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create location",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"co\",\n    \"city\": \"Bogota\",\n    \"address\": \"carrera 70a # 65a 18\",\n    \"zip_code\": 100000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update location",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"fcf1702e-b059-4961-a54c-3181b7e6fc24\",\n    \"code\": \"MX\",\n    \"city\": \"Mexico\",\n    \"address\": \"Av. Jalisco\",\n    \"zip_code\": 400000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"dmateus17.dm@gmail.com\",\n    \"phone\": \"3166989045\",\n    \"ownerId\": \"ac2dff4a-2925-4afe-ab7e-4cab7a09c203\",\n    \"locationId\": \"7ce27895-dcc6-41d7-80bd-05d25cd7bd24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update contact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"5b83762f-9bc9-4e57-87f7-e06a58125e47\",\n    \"email\": \"dmateus17.dm@gmail.com\",\n    \"phone\": \"3102098282\",\n    \"ownerId\": \"fd1bf748-7a9c-4c34-ac9a-a94481c07827\",\n    \"locationId\": \"a18c1723-3993-4a95-ada0-7440c53c9c80\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all franchises",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/franchises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"franchises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create franchise",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"franquicia 3\",\n    \"url\": \"https://marriot.com\",\n    \"ownerId\": \"ac2dff4a-2925-4afe-ab7e-4cab7a09c203\",\n    \"locationId\": \"7ce27895-dcc6-41d7-80bd-05d25cd7bd24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/franchises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"franchises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update franchise",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"463b6835-c09d-4780-b817-0ffefdebc583\",\n    \"name\": \"franquicia update\",\n    \"url\": \"1015468973\",\n    \"ownerId\": \"fd1bf748-7a9c-4c34-ac9a-a94481c07827\",\n    \"locationId\": \"a18c1723-3993-4a95-ada0-7440c53c9c80\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/franchises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"franchises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create information",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"information 1\",\n    \"tax_number\": 1015468973,\n    \"ownerId\": \"ac2dff4a-2925-4afe-ab7e-4cab7a09c203\",\n    \"locationId\": \"7ce27895-dcc6-41d7-80bd-05d25cd7bd24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update information",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"463b6835-c09d-4780-b817-0ffefdebc583\",\n    \"name\": \"franquicia update\",\n    \"url\": \"1015468973\",\n    \"ownerId\": \"fd1bf748-7a9c-4c34-ac9a-a94481c07827\",\n    \"locationId\": \"a18c1723-3993-4a95-ada0-7440c53c9c80\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get info hotel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/hotel?host=marriot.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"hotel"
+					],
+					"query": [
+						{
+							"key": "host",
+							"value": "marriot.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

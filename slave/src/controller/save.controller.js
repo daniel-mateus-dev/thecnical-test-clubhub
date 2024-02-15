@@ -8,10 +8,12 @@ const { saveLocationController } = require("./location.controller");
 
 const { Endpoint } = require("../database/models/endpoints");
 
-const saveDataHotelController = async (url, hotelId) => {
+const saveDataHotelController = async (url, hotelId, retries = 3) => {
+  let r = 1;
+
   try {
     console.log(`Getting hotel data for ${url}`);
-    
+
     const sslInfo = await getSslInfo(url);
 
     if (!sslInfo?.endpoints?.length) {
@@ -69,8 +71,15 @@ const saveDataHotelController = async (url, hotelId) => {
     await Promise.all(savePromises);
     console.log("Hotels data saved");
   } catch (error) {
-    console.error(error);
     console.log("Error save data");
+    console.error(error);
+    console.log(`retries strategy: if ${r} <= 3`);
+    if (r <= 3) {
+      r++;
+      saveDataHotelController(url, hotelId, r);
+    } else {
+      console.log(`retries strategy finished failed`);
+    }
   }
 };
 
